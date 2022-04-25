@@ -1,0 +1,39 @@
+## SAMPLE YAML CONFIGURATION FILE FOR KCHIP
+
+
+# Droplets Image Parameters
+image:
+  base_path: 'images/'
+
+  names:
+    premerge: 20211116_premerge
+    t0: 20211116_t0
+    t1: 20211116_t1
+    t2: 20211116_t2
+    t3: 20211116_t3
+
+  pixel_size: 6.5 # um/px
+  size: 2048 # 2048 for 1X; 1024 for 2X# px
+  overlap: 0.05
+  well_start_image: [1,2]
+  well_start_xy: [540,140]
+  dyes: [0,1,2]  # index (start at 0) in image for dye channels
+  bugs: 3       # index of bugs (start at 0) in image for dye channels
+  rescale: [1.2,1.0,1.0,1]
+  # 53,000 / 24,000 / 10,000 / Reporter / 6,000
+  background_image: background_image
+  bkg_img_suffix: _bg # for kyla
+
+
+well_mask:
+  filename: kchip/well_mask.tif
+  pixel_size: 8.33625 # um/px
+  well_start_xy: [850,  522] # currently this is post scaling
+
+barcodes:
+  path: 20201109_Notes_UV0.xlsx
+  cluster:
+      offset: [0,0,0]
+      points_to_cluster: 40000
+      eps: 0.03
+      min_samples: 2
